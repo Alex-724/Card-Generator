@@ -1,0 +1,44 @@
+<?php
+/*Color*/
+$green = "\033[92m";
+$red = "\033[91m";
+$cyan = "\033[36m";
+$yellow = "\033[93m";
+$bold = "\033[5m";
+$white = "\033[0m";
+/*Form*/
+$date   = date('d-M-Y H:i');
+//system("clear");
+echo $red . "
+___ ____ _____    ____              _
+|_ _/ ___|_   _|  / ___|__ _ _ __ __| |
+ | | |     | |   | |   / _` | '__/ _` |
+ | | |___  | |   | |__| (_| | | | (_| |
+|___\____| |_|    \____\__,_|_|  \__,_|
+
+";
+echo $blue . "==================================";
+echo $bold . $green . "\nCoder   : Alex
+Team    : 𝘞𝘏𝘐𝘛𝘌 𝘛𝘖𝘖𝘓𝘚 ¦ TrAkOs
+Code    : PHP
+Version : 1.0.0\n";
+echo $bold . $green . "DMYH    : $date\n";
+echo $blue . "==================================\n";
+echo $bold . $red . "Count      : ";
+$count = trim(fgets(STDIN,1024));
+echo $bold . $white . "Delay      : ";
+$sleep = trim(fgets(STDIN,1024));
+for($x = 0; $x < $count; $x++){
+$str = file_get_contents("http://namegenerators.org/fake-name-generator-us/");
+$var = '/<div class="col2">(.*?)<\/div>/s';
+preg_match_all($var, $str, $matches);
+echo $red . "\n $$$$$$$$$$$$$$$ CARD INFORMATION $$$$$$$$$$$$$$$\n";
+echo $bold . $blue . "Card-Name : ".str_replace("</span>", "", str_replace('<span class="name">', "", $matches[1][3]))."\n".
+    "Card-Number : ".str_replace(" ", "", $matches[1][14])."\n".
+    "Card-Cvv : ".$matches[1][16]."\n".
+    "Card-Exp-Date : ".$matches[1][15]."\n".
+    "Card-Address : ".$matches[1][8]."\n".
+    "Card-Phone-Number : ".$matches[1][9]."\n".
+	sleep($sleep);
+}
+?>
